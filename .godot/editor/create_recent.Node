@@ -1,0 +1,8 @@
+CollisionShape2D
+Sprite2D
+CharacterBody2D
+Label
+CanvasLayer
+Timer
+Node2D
+Area2D
