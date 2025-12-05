@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://enf2hj6c6h62"]
+
+[ext_resource type="Script" uid="uid://dee1sding1a0d" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://4lwj1mm65fmx" path="res://Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c8yb3h5k9m2n1" path="res://background.tscn" id="2_bg0nd"]
+[ext_resource type="AudioStream" path="res://background_music.wav" id="4_music"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="Background" parent="." instance=ExtResource("2_bg0nd")]
+z_index = -1
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="CoinSpawnTimer" type="Timer" parent="."]
+wait_time = 1.8
+autostart = true
+
+[node name="BadCoinSpawnTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="ObstacleSpawnTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="PowerUpSpawnTimer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="GoldenStarSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="SpecialStarSpawnTimer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 6.0
+offset_top = 33.0
+offset_right = 46.0
+offset_bottom = 56.0
+text = "Pontuação: 0"
+
+[node name="PowerUpLabel" type="Label" parent="CanvasLayer"]
+offset_left = 6.0
+offset_top = 60.0
+offset_right = 200.0
+offset_bottom = 83.0
+text = ""
+
+[node name="LivesContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 950.0
+offset_top = 33.0
+offset_right = 1150.0
+offset_bottom = 83.0
+
+[node name="Life1" type="ColorRect" parent="CanvasLayer/LivesContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(1, 0.3, 0.2, 1)
+
+[node name="Life2" type="ColorRect" parent="CanvasLayer/LivesContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(1, 0.3, 0.2, 1)
+
+[node name="Life3" type="ColorRect" parent="CanvasLayer/LivesContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(1, 0.3, 0.2, 1)
+
+[node name="Life4" type="ColorRect" parent="CanvasLayer/LivesContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(1, 0.3, 0.2, 1)
+
+[node name="Life5" type="ColorRect" parent="CanvasLayer/LivesContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(1, 0.3, 0.2, 1)
+
+[node name="StartLabel" type="Label" parent="CanvasLayer"]
+offset_left = 400.0
+offset_top = 300.0
+offset_right = 750.0
+offset_bottom = 360.0
+theme_override_font_sizes/font_size = 32
+text = "PRESSIONE ESPAÇO PARA COMEÇAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InstructionsLabel" type="Label" parent="CanvasLayer"]
+offset_left = 300.0
+offset_top = 150.0
+offset_right = 850.0
+offset_bottom = 280.0
+theme_override_font_sizes/font_size = 18
+text = "INSTRUÇÕES:
+• Setas: Mover a Millennium Falcon
+• Espaço: Atirar lasers
+• Destrua as Estrelas da Morte (cinzas)
+• Colete símbolos da Aliança Rebelde (vermelhos) = pontos
+• Evite TIE Fighters (inimigos cinzas)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_music")
+volume_db = -18.0
+autoplay = true
+bus = &"Master"

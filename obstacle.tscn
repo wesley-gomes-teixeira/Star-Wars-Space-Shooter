@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://d9vhwf4c7m74h"]
+
+[ext_resource type="Script" path="res://obstacle.gd" id="1_obstacle"]
+[ext_resource type="Texture2D" uid="uid://jmxwtgfftrg6" path="res://icon.svg" id="2_obstacle"]
+[ext_resource type="AudioStream" path="res://explosion.wav" id="3_explosion"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_obstacle"]
+radius = 30.0
+
+[node name="Obstacle" type="StaticBody2D"]
+script = ExtResource("1_obstacle")
+
+[node name="DeathStarBody" type="ColorRect" parent="."]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.45, 0.45, 0.5, 1)
+
+[node name="Atmosphere" type="ColorRect" parent="."]
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+color = Color(0.4, 0.4, 0.45, 0.3)
+
+[node name="SuperlaserDish" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+color = Color(0.3, 0.35, 0.4, 1)
+
+[node name="SuperlaserCore" type="ColorRect" parent="."]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+color = Color(0.2, 0.6, 0.3, 1)
+
+[node name="PanelLine1" type="ColorRect" parent="."]
+offset_left = -28.0
+offset_top = -1.0
+offset_right = 28.0
+offset_bottom = 1.0
+color = Color(0.35, 0.35, 0.4, 1)
+
+[node name="PanelLine2" type="ColorRect" parent="."]
+offset_left = -1.0
+offset_top = -28.0
+offset_right = 1.0
+offset_bottom = 28.0
+color = Color(0.35, 0.35, 0.4, 1)
+
+[node name="Trench1" type="ColorRect" parent="."]
+offset_left = -25.0
+offset_top = 8.0
+offset_right = 25.0
+offset_bottom = 10.0
+color = Color(0.25, 0.25, 0.3, 1)
+
+[node name="Trench2" type="ColorRect" parent="."]
+offset_left = -25.0
+offset_top = -10.0
+offset_right = 25.0
+offset_bottom = -8.0
+color = Color(0.25, 0.25, 0.3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_obstacle")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_explosion")
+volume_db = -3.0

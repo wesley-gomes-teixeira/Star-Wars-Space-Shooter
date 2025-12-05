@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8vhwf4c7m74g"]
+
+[ext_resource type="Script" path="res://bad_coin.gd" id="1_badcoin"]
+[ext_resource type="Texture2D" uid="uid://jmxwtgfftrg6" path="res://icon.svg" id="2_badcoin"]
+[ext_resource type="AudioStream" path="res://collision.wav" id="3_collision"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bad"]
+radius = 24.0
+
+[node name="BadCoin" type="Area2D"]
+script = ExtResource("1_badcoin")
+
+[node name="Cockpit" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="CockpitWindow" type="ColorRect" parent="."]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+color = Color(0.1, 0.3, 0.2, 1)
+
+[node name="LeftWing" type="ColorRect" parent="."]
+offset_left = -25.0
+offset_top = -20.0
+offset_right = -8.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.3, 1)
+
+[node name="LeftWingFrame" type="ColorRect" parent="."]
+offset_left = -22.0
+offset_top = -15.0
+offset_right = -11.0
+offset_bottom = 15.0
+color = Color(0.15, 0.15, 0.2, 1)
+
+[node name="RightWing" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 25.0
+offset_bottom = 20.0
+color = Color(0.25, 0.25, 0.3, 1)
+
+[node name="RightWingFrame" type="ColorRect" parent="."]
+offset_left = 11.0
+offset_top = -15.0
+offset_right = 22.0
+offset_bottom = 15.0
+color = Color(0.15, 0.15, 0.2, 1)
+
+[node name="ConnectorLeft" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -2.0
+offset_right = -4.0
+offset_bottom = 2.0
+color = Color(0.2, 0.2, 0.25, 1)
+
+[node name="ConnectorRight" type="ColorRect" parent="."]
+offset_left = 4.0
+offset_top = -2.0
+offset_right = 8.0
+offset_bottom = 2.0
+color = Color(0.2, 0.2, 0.25, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bad")
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_collision")
+volume_db = -2.0
